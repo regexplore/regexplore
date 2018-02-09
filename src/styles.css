@@ -5,28 +5,3 @@
 The available themes are: indigo-pink, deeppurple-amber, purple-green and pink-bluegrey.
 */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-/*.example-icon {*/
-  /*padding: 0 14px;*/
-/*}*/
-
-/*.example-spacer {*/
-  /*flex: 1 1 auto;*/
-/*}*/
-
-/*.example-container {*/
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*bottom: 0;*/
-  /*left: 0;*/
-  /*right: 0;*/
-/*}*/
-
-.example-card {
-  max-width: 400px;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}

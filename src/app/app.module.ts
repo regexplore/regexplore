@@ -6,12 +6,25 @@ import { AppComponent } from './app.component';
 
 //for exporting all material imports in one module
 import {MaterialModule} from './modules/material.module';
+
+//services
+import {RegexService} from './services/regex.service';
+
+//components
 import {FormsModule} from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { RegexFieldComponent } from './body/regex-field/regex-field.component';
+import { BodyComponent } from './body/body.component';
+import { TextFieldComponent } from './body/text-field/text-field.component';
+
+
 @NgModule({
   declarations:  [
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    RegexFieldComponent,
+    BodyComponent,
+    TextFieldComponent
   ],
   imports: [
     FormsModule,
@@ -19,7 +32,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [RegexService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

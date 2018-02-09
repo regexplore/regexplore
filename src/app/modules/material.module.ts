@@ -1,30 +1,26 @@
 import {NgModule} from '@angular/core';
 import {
   MatButtonModule,
-  MatSidenavModule,
-  MatMenuModule,
-  MatIconModule,
+  MatInputModule,
   MatToolbarModule,
   MatCardModule,
 } from '@angular/material';
-import "hammerjs";
+import 'hammerjs';
+
 @NgModule({
   imports:[
     MatButtonModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatIconModule,
+    MatToolbarModule,
+    MatInputModule,
     MatCardModule,
-  MatToolbarModule,
 
   ],
   exports:[
     MatButtonModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatIconModule,
+    MatToolbarModule,
+    MatInputModule,
     MatCardModule,
-  MatToolbarModule,
+
 
   ]
 })
