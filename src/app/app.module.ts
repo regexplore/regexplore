@@ -17,6 +17,8 @@ import { RegexFieldComponent } from './body/regex-field/regex-field.component';
 import { BodyComponent } from './body/body.component';
 import { TextFieldComponent } from './body/text-field/text-field.component';
 
+import {XRegExp} from 'xregexp';
+
 
 @NgModule({
   declarations:  [

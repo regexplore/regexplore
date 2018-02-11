@@ -2,9 +2,9 @@
     <textarea matInput
               placeholder="enter your text here"
               [(ngModel)]="textInput"
-              rows="4">
+              rows="4" (keyup)="onKeyup()"
+    >
     </textarea>
 </mat-form-field>
 
-{{textInput}}
 

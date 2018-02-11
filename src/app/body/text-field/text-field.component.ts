@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RegexService} from '../../services/regex.service';
 
 @Component({
   selector: 'app-text-field',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextFieldComponent implements OnInit {
   textInput:string;
-  constructor() { }
+
+  constructor(private regexService:RegexService) { }
 
   ngOnInit() {
+
   }
 
+  onKeyup(){
+    this.regexService.textFieldChange(this.textInput);
+  }
 }
