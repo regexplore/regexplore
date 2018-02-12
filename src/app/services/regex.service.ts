@@ -1,33 +1,45 @@
-// import {XRegExp} from 'xregexp';
+// import XRegExp from 'xregexp'; //TODO: why this is not working and we have to use CDN
 
 export class RegexService{
-  regex:string;
-  text:string;
-
-  regInstance:RegExp;
-  matchedStrin:RegExpExecArray;
+  regexInput:string;
+  textInput:string;
+  matchCount:number;
+  flags:string="";
+  regex:RegExp;
+  replacedString:string;
 
   constructor(){
-   console.log('constructor is being called');
+    console.log('constructor is being called');
   }
   regexFieldChange(newRegex:string){
-    this.regex=newRegex;
+    this.regexInput=newRegex;
     this.exec();
   }
   textFieldChange(newText:string){
-    this.text=newText;
+    this.textInput=newText;
     this.exec();
   }
-
+  flagFieldChange(newFlags:string){
+    this.flags=newFlags;
+  }
   exec(){
-    // this.regInstance=XRegExp("hello");
-   // console.log('\n---------------------------');
-   // console.log('-'+this.regex+"--"+this.text);
-   // console.log(XRegExp.version());
+    console.clear();
+    this.regex=XRegExp(this.regexInput,this.flags);
+    console.log(this.regexInput);
+    // console.log(this.textInput);
 
-   // this.matchedString=XRegExp.exec(this.regInstance);
-   // console.log(this.matchedString);
-   // console.log('---------------------------\n');
-  // console.log(XRegExp.exec('helloooowere',this.regInstance));
+    //if both values are entered
+    if(this.regexInput!=null && this.textInput!=null) {
+
+      this.replacedString = XRegExp.replace(this.textInput, this.regex, function (match) {
+        /*
+         mark whatever is matched according to regex, with something which can't occur in string,
+         now we can color or style this text
+         */
+        return "^^^" + match + "^^^";
+      });
+    }
+    console.log(this.replacedString);
+
   }
 }
