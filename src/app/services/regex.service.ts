@@ -1,4 +1,16 @@
-// import XRegExp from 'xregexp'; //TODO: why this is not working and we have to use CDN
+
+// import XRegExp from 'xregexp'; //TODO: why this is not working and we have to use CDNv
+
+//SOLUTION 1
+import * as XRegExp from 'xregexp';
+/*
+this is working solution from
+  https://stackoverflow.com/a/43122829/6178783
+*/
+/* SOLUTION 2
+declare var require: any; //have to tell angular about global variable 'require' first
+const XRegExp=require("xregexp");
+*/
 
 export class RegexService{
   regexInput:string;
