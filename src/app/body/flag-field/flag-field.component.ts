@@ -9,14 +9,19 @@ import {RegexService} from '../../services/regex.service';
 export class FlagFieldComponent implements OnInit {
   gflag:boolean=true;
   iflag:boolean=false;
-  flagField:string="";
+  flagField:string;
+
   // mflag:boolean=false;
   // sflag:boolean=false;
+  matchCount:number; //this will show number of matches so far
   constructor(private regexService:RegexService) { }
 
   ngOnInit() {
     this.syncFlag();
     this.regexService.flagFieldChange(this.flagField);
+    this.regexService.matchCountSubject.subscribe((matchCount:number)=>{
+      this.matchCount=matchCount;
+    })
   }
   onFlagChange(){
     this.syncFlag();

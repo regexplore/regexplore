@@ -20,10 +20,12 @@ export class RegexService{
   flags:string="";
   regex:RegExp;
   replacedText:string;
+
+  //subjects for communication
   replaceTextSubject=new Subject();
+  matchCountSubject=new Subject();
 
   constructor(){
-    console.log('constructor is being called');
   }
   regexFieldChange(newRegex:string){
     this.regexInput=newRegex;
@@ -38,10 +40,9 @@ export class RegexService{
     this.exec();
   }
   exec(){
-    console.clear()
+    console.clear();
     this.regex=XRegExp(this.regexInput,this.flags);
     console.log(this.regexInput+"  "+this.flags);
-    // console.log(this.textInput);
 
     //if both values are entered
     if(this.regexInput!=null && this.textInput!=null) {
@@ -55,6 +56,7 @@ export class RegexService{
         return "<span>" + match + "</span>";
       });
       this.replaceTextSubject.next(this.replacedText);
+      this.matchCountSubject.next(this.matchCount);
     }
     console.log(this.replacedText+" "+this.matchCount+" matches");
   }

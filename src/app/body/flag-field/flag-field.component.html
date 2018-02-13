@@ -1,4 +1,6 @@
 <div style="padding:1em;">
+  <mat-chip-list> <!--so all can come in one line, TODO: do it properly with CSS-->
+
   <mat-checkbox
     (change)='onFlagChange()'
     color='primary'
@@ -26,4 +28,7 @@
     <!--Dot matches all (s)-->
   <!--</mat-checkbox>-->
 
+   <!--lets put chip for showing number of matches here-->
+    <mat-chip>{{matchCount}} matches</mat-chip>
+  </mat-chip-list>
 </div>

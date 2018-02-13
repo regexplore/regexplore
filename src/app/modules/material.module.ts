@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {
   MatButtonModule,
   MatInputModule,
+  MatChipsModule,
   MatToolbarModule,
   MatCardModule,
   MatCheckboxModule,
@@ -16,6 +17,7 @@ import 'hammerjs';
     MatInputModule,
     MatCardModule,
     MatCheckboxModule,
+  MatChipsModule,
 
   ],
   exports:[
@@ -24,6 +26,7 @@ import 'hammerjs';
     MatInputModule,
     MatCardModule,
     MatCheckboxModule,
+  MatChipsModule,
 
   ]
 })

@@ -7,11 +7,12 @@ import {RegexService} from '../../services/regex.service';
   styleUrls: ['./regex-field.component.css']
 })
 export class RegexFieldComponent implements OnInit {
-  regexInput:string;
+  regexInput:string='hi';//test
 
-  constructor(private regexService:RegexService) { }
+  constructor(private regexService:RegexService) {}
 
   ngOnInit() {
+        this.regexService.regexFieldChange(this.regexInput);//test
   }
 
   onKeyup(){
