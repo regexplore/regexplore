@@ -18,6 +18,7 @@ import { BodyComponent } from './body/body.component';
 import { TextFieldComponent } from './body/text-field/text-field.component';
 
 import {XRegExp} from 'xregexp';
+import { FlagFieldComponent } from './body/flag-field/flag-field.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {XRegExp} from 'xregexp';
     ToolbarComponent,
     RegexFieldComponent,
     BodyComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    FlagFieldComponent
   ],
   imports: [
     FormsModule,

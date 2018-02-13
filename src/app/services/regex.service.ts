@@ -33,11 +33,12 @@ export class RegexService{
   }
   flagFieldChange(newFlags:string){
     this.flags=newFlags;
+    this.exec();
   }
   exec(){
     console.clear();
     this.regex=XRegExp(this.regexInput,this.flags);
-    console.log(this.regexInput);
+    console.log(this.regexInput+"  "+this.flags);
     // console.log(this.textInput);
 
     //if both values are entered

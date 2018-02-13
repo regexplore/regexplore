@@ -1,0 +1,29 @@
+<div style="padding:1em;">
+  <mat-checkbox
+    (change)='onFlagChange()'
+    color='primary'
+    [(ngModel)]='gflag'>
+    Global matches (g)
+  </mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-checkbox
+    (change)='onFlagChange()'
+    color='primary'
+    [(ngModel)]='iflag'>
+    Case insensitive (i)
+  </mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <!--<mat-checkbox-->
+    <!--(change)='onFlagChange()'-->
+    <!--color='primary'-->
+    <!--[(ngModel)]='mflag'>-->
+    <!--^$ match at line breaks (m)-->
+  <!--</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+  <!--<mat-checkbox-->
+    <!--(change)='onFlagChange()'-->
+    <!--color='primary'-->
+    <!--[(ngModel)]='sflag'>-->
+    <!--Dot matches all (s)-->
+  <!--</mat-checkbox>-->
+
+</div>

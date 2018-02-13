@@ -4,6 +4,8 @@ import {
   MatInputModule,
   MatToolbarModule,
   MatCardModule,
+  MatCheckboxModule,
+
 } from '@angular/material';
 import 'hammerjs';
 
@@ -13,6 +15,7 @@ import 'hammerjs';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    MatCheckboxModule,
 
   ],
   exports:[
@@ -20,7 +23,7 @@ import 'hammerjs';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
-
+    MatCheckboxModule,
 
   ]
 })
