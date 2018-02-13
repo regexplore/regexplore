@@ -2,3 +2,35 @@
 .example-full-width {
   width: 100%;
 }
+
+/* highlighting solution is from
+    http://jsfiddle.net/ashishpatel0720/v18cje1w/
+
+ but need to be done
+      encapsulation:ViewEncapsulation.None
+ otherwise not working, or we have to put style inside BodyComponent
+ */
+.highlighter, #textid {
+    width: 400px;
+    height: 300px;
+    font-size: 10pt;
+    font-family: 'verdana';
+}
+
+.highlighter {
+    position: absolute;
+    padding: 1px;
+    margin-left: 1px;
+    color: white;
+}
+
+.highlighter>span {
+    background: red;
+    color: red;
+}
+
+#textid {
+    position: relative;
+    background-color: transparent;
+}
+

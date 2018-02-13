@@ -3,6 +3,7 @@
 
 //SOLUTION 1
 import * as XRegExp from 'xregexp';
+import {Subject} from 'rxjs/Subject';
 /*
 this is working solution from
   https://stackoverflow.com/a/43122829/6178783
@@ -18,7 +19,8 @@ export class RegexService{
   matchCount:number;
   flags:string="";
   regex:RegExp;
-  replacedString:string;
+  replacedText:string;
+  replaceTextSubject=new Subject();
 
   constructor(){
     console.log('constructor is being called');
@@ -36,23 +38,24 @@ export class RegexService{
     this.exec();
   }
   exec(){
-    console.clear();
+    console.clear()
     this.regex=XRegExp(this.regexInput,this.flags);
     console.log(this.regexInput+"  "+this.flags);
     // console.log(this.textInput);
 
     //if both values are entered
     if(this.regexInput!=null && this.textInput!=null) {
-
-      this.replacedString = XRegExp.replace(this.textInput, this.regex, function (match) {
+      this.matchCount=0;
+      this.replacedText= XRegExp.replace(this.textInput, this.regex, (match)=>{
         /*
          mark whatever is matched according to regex, with something which can't occur in string,
          now we can color or style this text
          */
-        return "^^^" + match + "^^^";
+        this.matchCount++;
+        return "<span>" + match + "</span>";
       });
+      this.replaceTextSubject.next(this.replacedText);
     }
-    console.log(this.replacedString);
-
+    console.log(this.replacedText+" "+this.matchCount+" matches");
   }
 }
