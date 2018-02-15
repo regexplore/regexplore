@@ -25,8 +25,8 @@ export class RegexService{
   replaceTextSubject=new Subject();
   matchCountSubject=new Subject();
 
-  constructor(){
-  }
+  constructor(){}
+
   regexFieldChange(newRegex:string){
     this.regexInput=newRegex;
     this.exec();
@@ -40,24 +40,30 @@ export class RegexService{
     this.exec();
   }
   exec(){
-    console.clear();
-    this.regex=XRegExp(this.regexInput,this.flags);
-    console.log(this.regexInput+"  "+this.flags);
-
-    //if both values are entered
+    // console.clear();
+    this.matchCount = 0;
     if(this.regexInput!=null && this.textInput!=null) {
-      this.matchCount=0;
-      this.replacedText= XRegExp.replace(this.textInput, this.regex, (match)=>{
+      this.regex=XRegExp(this.regexInput,this.flags);
+      // console.log(this.regexInput+"  "+this.flags);
+      //if both values are entered
+
+      this.replacedText = XRegExp.replace(this.textInput, this.regex, (match) => {
         /*
          mark whatever is matched according to regex, with something which can't occur in string,
          now we can color or style this text
          */
+
         this.matchCount++;
         return "<span>" + match + "</span>";
       });
       this.replaceTextSubject.next(this.replacedText);
-      this.matchCountSubject.next(this.matchCount);
+
+      //otherwise number of matchcounts are showing wrong as empty matches many
+      //if we put if we are not getting our replacedText updated
+      if(this.regexInput=='') this.matchCount=0;
     }
-    console.log(this.replacedText+" "+this.matchCount+" matches");
+
+    this.matchCountSubject.next(this.matchCount);
+    // console.log(this.replacedText+" "+this.matchCount+" matches");
   }
 }

@@ -11,26 +11,27 @@
  otherwise not working, or we have to put style inside BodyComponent
  */
 .highlighter, #textid {
-    width: 400px;
-    height: 300px;
-    font-size: 1em;
-    font-family: 'verdana';
+  width: 400px;
+  height: 300px;
+  font-size: 1.5em;
+  font-family: 'Comfortaa', cursive, "DejaVu Sans";
 }
 
 .highlighter {
-    position: absolute;
-    padding: 1px;
-    margin-left: 1px;
-    color: white;
+  position: absolute;
+  padding: 1px;
+  margin-left: 1px;
+  color: white;
 }
 
 .highlighter>span {
-    background: red;
-    color: red;
+  background: #b9d8f5;
+  color: #b9d8f5;
+
 }
 
 #textid {
-    position: relative;
-    background-color: transparent;
+  position: relative;
+  background-color: transparent;
 }
 

@@ -1,0 +1,8 @@
+
+div {
+ padding:1em;
+}
+
+mat-checkbox,mat-chip{
+   font-family: 'Comfortaa', cursive, "DejaVu Sans";
+}

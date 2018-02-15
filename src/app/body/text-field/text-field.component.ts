@@ -9,20 +9,23 @@ import {RegexService} from '../../services/regex.service';
   encapsulation:ViewEncapsulation.None
 })
 export class TextFieldComponent implements OnInit {
-  textInput:string='hi this is high time';//test
+  textInput:string='';
 
   @ViewChild('styleText') styleText:ElementRef;
 
   constructor(private regexService:RegexService) {}
 
   ngOnInit() {
+    //subscribe to anychange in replacedText with <span>
      this.regexService.replaceTextSubject.subscribe((replacedText:string)=>{
        this.styleText.nativeElement.innerHTML=replacedText;
      });
-        this.regexService.textFieldChange(this.textInput);//test
+     //to send any textinput if given at start
+        this.regexService.textFieldChange(this.textInput);
   }
 
   onKeyup(){
+    //to send textinput if any change happens
     this.regexService.textFieldChange(this.textInput);
   }
 }
