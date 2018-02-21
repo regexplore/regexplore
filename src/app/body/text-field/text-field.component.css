@@ -11,7 +11,7 @@
  otherwise not working, or we have to put style inside BodyComponent
  */
 .highlighter, #textid {
-  width: 400px;
+  width: 100%;
   height: 300px;
   font-size: 1.5em;
   font-family: 'Comfortaa', cursive, "DejaVu Sans";
