@@ -58,6 +58,12 @@ export class RegexService{
         else
           return '<span class=\'match2\'>' + match + '</span>';
       });
+      //just replacing all newline to <br> so that it should come in replaced text highlighted properly
+      this.replacedText = this.replacedText.replace(/\n/g, "<br>");
+
+      //the same problem with extra spaces need to be removed, but leaving anything inside <span> we added
+      this.replacedText = this.replacedText.replace(/ (?!class='match)/g, "&nbsp;");
+
       this.replaceTextSubject.next(this.replacedText);
 
       //otherwise number of matchcounts are showing wrong as empty matches many
@@ -66,6 +72,6 @@ export class RegexService{
     }
 
     this.matchCountSubject.next(this.matchCount);
-    console.log(this.replacedText+' '+this.matchCount+' matches');
+    console.log("<"+this.textInput+'>---<'+this.replacedText+">");
   }
 }
