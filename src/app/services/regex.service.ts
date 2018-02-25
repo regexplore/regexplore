@@ -17,7 +17,7 @@ export class RegexService{
   regexInput:string;
   textInput:string;
   matchCount:number;
-  flags:string="";
+  flags:string='';
   regex:RegExp;
   replacedText:string;
 
@@ -40,11 +40,11 @@ export class RegexService{
     this.exec();
   }
   exec(){
-    // console.clear();
+    console.clear();
     this.matchCount = 0;
     if(this.regexInput!=null && this.textInput!=null) {
       this.regex=XRegExp(this.regexInput,this.flags);
-      // console.log(this.regexInput+"  "+this.flags);
+      console.log(this.regexInput+'  '+this.flags);
       //if both values are entered
 
       this.replacedText = XRegExp.replace(this.textInput, this.regex, (match) => {
@@ -52,9 +52,11 @@ export class RegexService{
          mark whatever is matched according to regex, with something which can't occur in string,
          now we can color or style this text
          */
-
         this.matchCount++;
-        return "<span>" + match + "</span>";
+        if(this.matchCount%2!=0)
+          return '<span class=\'match1\'>' + match + '</span>';
+        else
+          return '<span class=\'match2\'>' + match + '</span>';
       });
       this.replaceTextSubject.next(this.replacedText);
 
@@ -64,6 +66,6 @@ export class RegexService{
     }
 
     this.matchCountSubject.next(this.matchCount);
-    // console.log(this.replacedText+" "+this.matchCount+" matches");
+    console.log(this.replacedText+' '+this.matchCount+' matches');
   }
 }

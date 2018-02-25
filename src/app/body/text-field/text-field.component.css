@@ -24,10 +24,14 @@
   color: white;
 }
 
-.highlighter>span {
+.highlighter>span.match1 {
   background: #b9d8f5;
   color: #b9d8f5;
 
+}
+.highlighter>span.match2 {
+  background: rgba(244, 170, 54, 0.61);
+  color: rgba(244, 170, 54, 0.61);
 }
 
 #textid {
