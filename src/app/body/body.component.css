@@ -2,6 +2,7 @@
 .example-card {
   max-width: 100%;
   margin:5em 3em 1.5em 3em;
+  font-family: 'Comfortaa', cursive, "DejaVu Sans";
 }
 
 
@@ -18,3 +19,13 @@
   }
 }
 
+footer{
+  text-align: center;
+  font-family: 'Comfortaa', cursive, "DejaVu Sans";
+}
+
+footer>a{
+  text-decoration: none;
+  color:#4e2ab6;
+  font-weight: bold;
+}
