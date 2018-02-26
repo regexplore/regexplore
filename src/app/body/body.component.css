@@ -1,20 +1,20 @@
 
 .example-card {
   max-width: 100%;
-  margin:6em 3em 1.5em 3em;
-
+  margin:5em 3em 1.5em 3em;
 }
 
 
 @media screen and (max-width: 620px) {
   .example-card{
-    margin:1.5em 1em;
+    margin:5em 1.5em 1em 1.5em;
+
   }
 }
 
 @media screen and (max-width: 420px) {
   .example-card{
-    margin:1em 0em;
+    margin:7em 0em 1em 0em;
   }
 }
 
