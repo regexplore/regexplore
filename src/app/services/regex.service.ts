@@ -72,6 +72,6 @@ export class RegexService{
     }
 
     this.matchCountSubject.next(this.matchCount);
-    console.log("<"+this.textInput+'>---<'+this.replacedText+">");
+    // console.log("<"+this.textInput+'>---<'+this.replacedText+">");
   }
 }

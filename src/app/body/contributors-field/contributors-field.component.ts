@@ -11,11 +11,9 @@ export class ContributorsFieldComponent implements OnInit {
   constructor(private http:Http) { }
 
   ngOnInit() {
-    console.log("creating contributors");
-
       this.http.get('//api.github.com/repos/regexplore/regexplore/contributors')
         .subscribe((response)=>{
-          console.log(response.json());
+          // console.log(response.json());
           this.contributors=response.json();
           },
           (error)=>{
