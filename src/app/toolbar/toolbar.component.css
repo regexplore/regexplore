@@ -1,8 +1,8 @@
-.example-icon {
+.ap-icon {
   padding: 0 14px;
 }
 
-.example-toolbar{
+.ap-toolbar{
   position: fixed;
   top:0px;
   right:0px;
@@ -11,14 +11,14 @@
   box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }
 
-.example-toolbar-row{
+.ap-toolbar-row{
   display:flex;
   flex-wrap: wrap;
   justify-content: space-between;
   height: auto;
 }
 
-.example-menu{
+.ap-menu{
   display:flex;
   flex-wrap: wrap;
 }
