@@ -12,6 +12,12 @@
   flex-basis: 25%;
   /*margin:5em 3em 1.5em 0em;*/
 }
+.ap-footer-card{
+  margin:0em 0em 0em 0em;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}
 
 .ap-body-class{
   display:flex;
@@ -21,7 +27,7 @@
 
 @media screen and (max-width: 920px) {
   .ap-card{
-    margin:5em 1.5em 1em 1.5em;
+    margin:5em 1.5em 1em 0.5em;
   }
   .ap-content-card{
     flex-basis:100%;
@@ -31,10 +37,13 @@
     flex-basis: 100%;
     margin-top:0em;
   }
+  .ap-footer-card{
+  margin:0em 0em 0em 0em;
+}
 }
 @media screen and (max-width: 420px) {
   .ap-card{
-    margin:7em 0em 1em 0em;
+    margin:5em 0em 1em 0em;
   }
     .ap-content-card{
     flex-basis:100%;
@@ -43,7 +52,9 @@
     flex-basis: 100%;
     margin-top:0em;
   }
-
+.ap-footer-card{
+  margin:0em 0em 0em 0em;
+}
 }
 
 footer{
