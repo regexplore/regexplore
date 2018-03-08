@@ -1,9 +1,12 @@
 <h1 class="ap-contributors-header">contributors</h1>
 <div class="ap-contributors">
-  <div *ngFor="let contributor of contributors" class="ap-contributor-img"
-       mat-card-avatar
-       [style.background-size]="'cover'"
-       [style.background-image]="'url('+contributor.avatar_url+')'"
+  <a *ngFor="let contributor of contributors" class="ap-contributor-img"
+     mat-card-avatar
+     [style.background-size]="'cover'"
+     [style.background-image]="'url('+contributor.avatar_url+')'"
+     [href]="contributor.html_url"
+     target="_blank"
+     [matTooltip]="contributor.login"
   >
-  </div>
+  </a>
 </div>

@@ -13,8 +13,7 @@ export class ContributorsFieldComponent implements OnInit {
   ngOnInit() {
     console.log("creating contributors");
 
-      // this.http.get('//api.github.com/repos/ashishpatel0720/regexguru/contributors')
-      this.http.get('https://api.github.com/repos/vuejs/vue/contributors')
+      this.http.get('//api.github.com/repos/regexplore/regexplore/contributors')
         .subscribe((response)=>{
           console.log(response.json());
           this.contributors=response.json();
