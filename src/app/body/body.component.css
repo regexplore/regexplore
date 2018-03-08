@@ -32,7 +32,6 @@
     margin-top:0em;
   }
 }
-
 @media screen and (max-width: 420px) {
   .ap-card{
     margin:7em 0em 1em 0em;
@@ -42,6 +41,7 @@
   }
   .ap-about-card{
     flex-basis: 100%;
+    margin-top:0em;
   }
 
 }

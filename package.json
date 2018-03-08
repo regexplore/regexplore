@@ -1,6 +1,6 @@
 {
-  "name": "regexguru",
-  "version": "0.0.0",
+  "name": "regexexplore",
+  "version": "0.5.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

@@ -1,0 +1,20 @@
+
+.ap-contributors{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ap-contributor-img{
+  height: 5em;
+  width:5em;
+  margin:0.5em;
+  border:solid #4e2ab6 1px;
+}
+
+.ap-contributors-header{
+  font-weight: normal;
+  margin: 0px;
+  margin-top: -10px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  font-size: 2.3em;
+}

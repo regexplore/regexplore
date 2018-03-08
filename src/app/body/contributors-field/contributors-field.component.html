@@ -1,7 +1,9 @@
-<h1 style="font-weight: normal">contributors</h1>
-
-<ul>
-  <li *ngFor="let contributor of contributors">
-    {{contributor}}
-  </li>
-</ul>
+<h1 class="ap-contributors-header">contributors</h1>
+<div class="ap-contributors">
+  <div *ngFor="let contributor of contributors" class="ap-contributor-img"
+       mat-card-avatar
+       [style.background-size]="'cover'"
+       [style.background-image]="'url('+contributor.avatar_url+')'"
+  >
+  </div>
+</div>
