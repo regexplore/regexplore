@@ -62,8 +62,7 @@ footer{
   font-family: 'Comfortaa', cursive, "DejaVu Sans";
 }
 
-footer>a{
+footer a{
   text-decoration: none;
   color:#4e2ab6;
-  font-weight: bold;
 }
