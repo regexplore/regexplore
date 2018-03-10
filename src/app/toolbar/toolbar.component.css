@@ -3,7 +3,7 @@
 }
 
 .ap-toolbar{
-  position: fixed;
+  position: absolute;
   top:0px;
   right:0px;
   left:0px;
@@ -24,8 +24,8 @@
 }
 
 .site-logo{
-  height: 2em;
-  margin-top: 0.7em;
+  height: 1.5em;
+  margin-top: 0.8em;
 }
 @media (max-width:400px){
   .site-logo{

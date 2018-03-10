@@ -40,11 +40,11 @@ export class RegexService{
     this.exec();
   }
   exec(){
-    console.clear();
+    // console.clear();
     this.matchCount = 0;
     if(this.regexInput!=null && this.textInput!=null) {
       this.regex=XRegExp(this.regexInput,this.flags);
-      console.log(this.regexInput+'  '+this.flags);
+      // console.log(this.regexInput+'  '+this.flags);
       //if both values are entered
 
       this.replacedText = XRegExp.replace(this.textInput, this.regex, (match) => {
