@@ -8,7 +8,7 @@ import {AppService} from '../services/app.service';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  appVersion:number;
+  appVersion:string;
   constructor(private appService:AppService) { }
 
   ngOnInit() {
