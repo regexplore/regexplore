@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Http} from '@angular/http';
+import {AppService} from '../../services/app.service';
 
 @Component({
   selector: 'app-contributors-field',
@@ -8,10 +8,10 @@ import {Http} from '@angular/http';
 })
 export class ContributorsFieldComponent implements OnInit {
   contributors=[]
-  constructor(private http:Http) { }
+  constructor(private appService:AppService){}
 
   ngOnInit() {
-      this.http.get('//api.github.com/repos/regexplore/regexplore/contributors')
+      this.appService.getContributors()
         .subscribe((response)=>{
           // console.log(response.json());
           this.contributors=response.json();
@@ -20,7 +20,6 @@ export class ContributorsFieldComponent implements OnInit {
           console.log(error);
           console.error("Error in getting Contributors");
           });
-
   }
 
 }

@@ -22,15 +22,28 @@
   display:flex;
   flex-wrap: wrap;
 }
+.ap-header-img{
+  display: flex;
+}
 
 .site-logo{
-  height: 1.5em;
-  margin-top: 0.8em;
+  height: 1.7em;
+  margin-top: 0.7em;
 }
 @media (max-width:400px){
   .site-logo{
+    height: 1.3em;
     margin-left: -0.5em;
   }
+}
+.app-version-chip{
+  font-family: 'Comfortaa', cursive, "DejaVu Sans";
+  font-size: 0.8em;
+  font-weight: 1000;
+  margin-top: -1em;
+  margin-bottom: 0em;
+  margin-left: -0.6em;
+  z-index: -1;
 }
 
 .button{

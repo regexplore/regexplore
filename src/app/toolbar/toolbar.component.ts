@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegexService} from '../services/regex.service';
+import {AppService} from '../services/app.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,10 +8,11 @@ import {RegexService} from '../services/regex.service';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-
-  constructor() { }
+  appVersion:number;
+  constructor(private appService:AppService) { }
 
   ngOnInit() {
+    this.appVersion=this.appService.getVersion();
   }
 
 }

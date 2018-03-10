@@ -23,8 +23,8 @@ import {XRegExp} from 'xregexp';
 import { FlagFieldComponent } from './body/flag-field/flag-field.component';
 import { ContributorsFieldComponent } from './body/contributors-field/contributors-field.component';
 
-import {HttpModule} from '@angular/http'; //TODO: ashishpatel0720: fix this deprecation
-
+import {HttpModule} from '@angular/http';
+import {AppService} from './services/app.service';
 
 
 @NgModule({
@@ -44,7 +44,7 @@ import {HttpModule} from '@angular/http'; //TODO: ashishpatel0720: fix this depr
     BrowserAnimationsModule,
     HttpModule
   ],
-  providers: [RegexService],
+  providers: [RegexService,AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
