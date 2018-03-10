@@ -19,8 +19,6 @@
 
 .highlighter {
   position: absolute;
-  padding: 1px;
-  margin-left: 1px;
   color: white;
 }
 
@@ -30,8 +28,8 @@
 
 }
 .highlighter>span.match2 {
-  background: rgba(244, 170, 54, 0.61);
-  color: rgba(244, 170, 54, 0.61);
+  background: #f4d15e;
+  color: #f4d15e;
 }
 
 #textid {
