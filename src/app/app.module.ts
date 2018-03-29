@@ -11,6 +11,8 @@ import {MaterialModule} from './modules/material.module';
 //services
 import {RegexService} from './services/regex.service';
 
+//codemirror
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 //components
 import {FormsModule} from '@angular/forms';
 
@@ -42,7 +44,8 @@ import {AppService} from './services/app.service';
     MaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    CodemirrorModule,
   ],
   providers: [RegexService,AppService],
   bootstrap: [AppComponent]

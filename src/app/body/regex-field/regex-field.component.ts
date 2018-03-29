@@ -7,7 +7,7 @@ import {RegexService} from '../../services/regex.service';
   styleUrls: ['./regex-field.component.css']
 })
 export class RegexFieldComponent implements OnInit {
-  regexInput:string='';
+  regexInput:string='hi';
 
   constructor(private regexService:RegexService) {}
 

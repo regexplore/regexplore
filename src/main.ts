@@ -5,6 +5,8 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import "hammerjs";
 
+import 'codemirror/mode/javascript/javascript';
+
 if (environment.production) {
   enableProdMode();
 }

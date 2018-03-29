@@ -1,11 +1,22 @@
-<mat-form-field class="example-full-width">
-  <div class="highlighter"  #styleText></div>
-  <textarea matInput
-            placeholder="enter your text here"
-            [(ngModel)]="textInput"
-            rows="10" (keyup)="onKeyup()"
-            id="textid">
-    </textarea>
-</mat-form-field>
+<!--<mat-form-field class="example-full-width">-->
+<!--<div class="highlighter"  #styleText></div>-->
+<!--<textarea matInput-->
+<!--placeholder="enter your text here"-->
+<!--[(ngModel)]="textInput"-->
+<!--rows="10" (keyup)="onKeyup()"-->
+<!--id="textid">-->
+<!--</textarea>-->
+<!--</mat-form-field>-->
+<ngx-codemirror [(ngModel)]="textInput" class="example-full-width"
+                (keyup)="onKeyup()"
+                id="textid"
+                [options]="{
+                  name:'textap',
+    lineNumbers: false,
+    theme:'default',
+    mode: 'text/plain'
+  }"
+></ngx-codemirror>
+
 
 

@@ -9,7 +9,7 @@ import {RegexService} from '../../services/regex.service';
   encapsulation:ViewEncapsulation.None
 })
 export class TextFieldComponent implements OnInit {
-  textInput:string='';
+  textInput:string='hi this is hi';
 
   @ViewChild('styleText') styleText:ElementRef;
 
