@@ -36,7 +36,7 @@ export class FlagFieldComponent implements OnInit {
   //this function sync the flagfield according to template
   syncFlag(){
     this.flagField="";
-    if(this.gflag) this.flagField+='g';
+    // if(this.gflag) this.flagField+='g';
     if(this.iflag) this.flagField+='i';
     // if(this.mflag) flagField+='m';
     // if(this.sflag) flagField+='s';
