@@ -22,18 +22,15 @@
   color: white;
 }
 
-.highlighter>span.match1 {
+span.cm-match1 {
   background: #b9d8f5;
-  color: #b9d8f5;
 
 }
-.highlighter>span.match2 {
+span.cm-match2 {
   background: #f4d15e;
-  color: #f4d15e;
 }
 
 #textid {
   position: relative;
   background-color: transparent;
 }
-

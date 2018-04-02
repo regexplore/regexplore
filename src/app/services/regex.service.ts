@@ -2,7 +2,7 @@
 // import XRegExp from 'xregexp'; //TODO: why this is not working and we have to use CDNv
 
 //SOLUTION 1
-import * as XRegExp from 'xregexp';
+// import * as XRegExp from 'xregexp';
 import {Subject} from 'rxjs/Subject';
 /*
 this is working solution from
@@ -22,56 +22,67 @@ export class RegexService{
   replacedText:string;
 
   //subjects for communication
-  replaceTextSubject=new Subject();
+  regexChangeSubject=new Subject();
   matchCountSubject=new Subject();
 
   constructor(){}
 
   regexFieldChange(newRegex:string){
+   console.log("Regexfield change");
+
     this.regexInput=newRegex;
-    this.exec();
+    //we just need to it whenever regex change nothing needs to be done on text change
+    this.regexChangeSubject.next(this.regexInput);
+    // this.exec();
   }
   textFieldChange(newText:string){
+   console.log("textfield change");
+
     this.textInput=newText;
-    this.exec();
+
+    //need to be called here as when called for regexFieldChange() TextInput component was not made
+    //so that didn't work
+    this.regexChangeSubject.next(this.regexInput);
+
+    // this.exec();
   }
   flagFieldChange(newFlags:string){
     this.flags=newFlags;
-    this.exec();
+    // this.exec();
   }
-  exec(){
-    // console.clear();
-    this.matchCount = 0;
-    if(this.regexInput!=null && this.textInput!=null) {
-      this.regex=XRegExp(this.regexInput,this.flags);
-      // console.log(this.regexInput+'  '+this.flags);
-      //if both values are entered
-
-      this.replacedText = XRegExp.replace(this.textInput, this.regex, (match) => {
-        /*
-         mark whatever is matched according to regex, with something which can't occur in string,
-         now we can color or style this text
-         */
-        this.matchCount++;
-        if(this.matchCount%2!=0)
-          return '<span class=\'match1\'>' + match + '</span>';
-        else
-          return '<span class=\'match2\'>' + match + '</span>';
-      });
-      //just replacing all newline to <br> so that it should come in replaced text highlighted properly
-      this.replacedText = this.replacedText.replace(/\n/g, "<br>");
-
-      //the same problem with extra spaces need to be removed, but leaving anything inside <span> we added
-      this.replacedText = this.replacedText.replace(/ (?!class='match)/g, "&nbsp;");
-
-      this.replaceTextSubject.next(this.replacedText);
-
-      //otherwise number of matchcounts are showing wrong as empty matches many
-      //if we put if we are not getting our replacedText updated
-      if(this.regexInput=='') this.matchCount=0;
-    }
-
-    this.matchCountSubject.next(this.matchCount);
-    // console.log("<"+this.textInput+'>---<'+this.replacedText+">");
-  }
+  // exec(){
+  //   // console.clear();
+  //   this.matchCount = 0;
+  //   if(this.regexInput!=null && this.textInput!=null) {
+  //     this.regex=XRegExp(this.regexInput,this.flags);
+  //     // console.log(this.regexInput+'  '+this.flags);
+  //     //if both values are entered
+  //
+  //     this.replacedText = XRegExp.replace(this.textInput, this.regex, (match) => {
+  //       /*
+  //        mark whatever is matched according to regex, with something which can't occur in string,
+  //        now we can color or style this text
+  //        */
+  //       this.matchCount++;
+  //       if(this.matchCount%2!=0)
+  //         return '<span class=\'match1\'>' + match + '</span>';
+  //       else
+  //         return '<span class=\'match2\'>' + match + '</span>';
+  //     });
+  //     //just replacing all newline to <br> so that it should come in replaced text highlighted properly
+  //     this.replacedText = this.replacedText.replace(/\n/g, "<br>");
+  //
+  //     //the same problem with extra spaces need to be removed, but leaving anything inside <span> we added
+  //     this.replacedText = this.replacedText.replace(/ (?!class='match)/g, "&nbsp;");
+  //
+  //     this.replaceTextSubject.next(this.replacedText);
+  //
+  //     //otherwise number of matchcounts are showing wrong as empty matches many
+  //     //if we put if we are not getting our replacedText updated
+  //     if(this.regexInput=='') this.matchCount=0;
+  //   }
+  //
+  //   this.matchCountSubject.next(this.matchCount);
+  //   // console.log("<"+this.textInput+'>---<'+this.replacedText+">");
+  // }
 }
