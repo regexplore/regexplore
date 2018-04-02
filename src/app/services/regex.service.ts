@@ -23,7 +23,7 @@ export class RegexService{
 
   //subjects for communication
   regexChangeSubject=new Subject();
-  matchCountSubject=new Subject();
+  matchCountSubject=new Subject();//handle matchcount and regexerror
 
   constructor(){}
 

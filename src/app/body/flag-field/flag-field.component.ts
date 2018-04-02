@@ -20,6 +20,7 @@ export class FlagFieldComponent implements OnInit {
     this.syncFlag();
     this.regexService.flagFieldChange(this.flagField);
     this.regexService.matchCountSubject.subscribe((matchCount:number)=>{
+      //matchCount will have -1 if there is an error in regex
       this.matchCount=matchCount;
     })
   }
@@ -35,5 +36,10 @@ export class FlagFieldComponent implements OnInit {
     if(this.iflag) this.flagField+='i';
     // if(this.mflag) flagField+='m';
     // if(this.sflag) flagField+='s';
+  }
+  matchMessage(){
+    if(this.matchCount==-1){
+      return "Invalid Regex";
+    }else return this.matchCount+" matches";
   }
 }

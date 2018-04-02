@@ -29,6 +29,6 @@
   <!--</mat-checkbox>-->
 
    <!--lets put chip for showing number of matches here-->
-    <mat-chip>{{matchCount}} matches</mat-chip>
+    <mat-chip [ngClass]="{error:matchCount==-1,matches:matchCount!=-1}">{{matchMessage()}}</mat-chip>
   </mat-chip-list>
 </div>

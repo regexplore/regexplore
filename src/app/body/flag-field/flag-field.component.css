@@ -6,3 +6,10 @@ div {
 mat-checkbox,mat-chip{
    font-family: 'Comfortaa', cursive, "DejaVu Sans";
 }
+.error{
+    color:red;
+}
+
+.matches{
+    color:blue;
+}

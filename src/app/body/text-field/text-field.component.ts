@@ -16,7 +16,8 @@ import * as XRegExp from 'xregexp';
 export class TextFieldComponent implements OnInit {
   textInput:string='ashishw0-99 sdafsdafashishw0-99 sdafsdafashishw0-99';
   count=0;
-  // @ViewChild('styleText') styleText:ElementRef;
+  matchCount=0;
+
   codemirrorOptions={
     lineNumbers: false,
     theme:'default',
@@ -38,8 +39,6 @@ export class TextFieldComponent implements OnInit {
   }
 
   createMode(regexInput:string,modename:string){
-    // const escapedString = escapeStringRegexp(reg);
-    // let regex=new RegExp(escapedString);
     let regex:RegExp;  
       try {
         //using exception handling we will avoid 
@@ -47,31 +46,39 @@ export class TextFieldComponent implements OnInit {
              regex=XRegExp(regexInput);
       } catch(e) {
         console.error("INVALID: invalid regular expression, see docs");
+        this.matchCount=-1;//matchcount=-1 means there is error in regex
+        this.regexService.matchCountSubject.next(this.matchCount);
+        return;//nothing need to be done from this functio now
       }
-
-      
+      this.matchCount=0;
+ console.log("matchCOunt "+this.matchCount);
     //creating a new mode for highlighting according to our need
-    CodeMirror.defineMode(modename, function(config, parserConfig) {
-      console.log("called with again "+regex);
+    CodeMirror.defineMode(modename, (config, parserConfig)=>{
+      console.log("defining mode");
       let counter=true;
       var regexOverlay = {
-        token: function(stream, state) {
+        token:(stream, state)=>{
           var ch;
           if (stream.match(regex)) {
             counter=!counter;
+            this.matchCount++;
+
+            console.log("sending "+this.matchCount); //TODO: optimize for sending only once
+            this.regexService.matchCountSubject.next(this.matchCount);
+
             if(counter) return "match1";
             else return "match2";
-            
           }
           while (stream.next() != null && !stream.match(regex, false)) {}
           return null;
         }
       };
+      
       return CodeMirror.overlayMode(CodeMirror.getMode(config, parserConfig.backdrop || "text/plain"), regexOverlay);
       //returning our mode with overlay we created
       //backdrop will be applied if this mode is not able to be applied
     });
-  }
+     }
   onKeyup(){
     //to send textinput if any change happens
     this.regexService.textFieldChange(this.textInput);
