@@ -36,3 +36,8 @@ span.cm-match2 {
   padding: 2px;
   line-height: 29px;
 }
+@media screen and (max-width: 420px) {
+    .CodeMirror{
+      min-height: 440px;
+    }
+  }
