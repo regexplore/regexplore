@@ -10,17 +10,13 @@
       encapsulation:ViewEncapsulation.None
  otherwise not working, or we have to put style inside BodyComponent
  */
-.highlighter, #textid {
+ #textarea {
   width: 100%;
-  height: 300px;
   font-size: 1.5em;
   font-family: 'Comfortaa', cursive, "DejaVu Sans";
+ 
 }
 
-.highlighter {
-  position: absolute;
-  color: white;
-}
 
 span.cm-match1 {
   background: #b9d8f5;
@@ -30,7 +26,11 @@ span.cm-match2 {
   background: #f4d15e;
 }
 
-#textid {
-  position: relative;
-  background-color: transparent;
+/* changing font-inside #textarea, not working with the id */
+.CodeMirror pre {
+  font-family: 'Comfortaa', cursive, "DejaVu Sans";
+}
+.CodeMirror{
+  border:1px rgb(78,42,182) solid;
+  min-height: 477px;
 }

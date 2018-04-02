@@ -20,7 +20,8 @@ export class TextFieldComponent implements OnInit {
   codemirrorOptions={
     lineNumbers: false,
     theme:'default',
-    mode: 'regexmode'
+    mode: 'regexmode',
+    lineWrapping:true
   };
   constructor(private regexService:RegexService) {}
   ngOnInit() {

@@ -1,11 +1,13 @@
 
 .ap-card {
-  max-width: 100%;
   margin:5em 0em 1.5em 0em;
   font-family: 'Comfortaa', cursive, "DejaVu Sans";
 }
 .ap-content-card {
-  flex-basis: 60%;
+  margin-bottom: 0em;
+  padding-bottom:0em;
+ width: 60%;
+ height:600px;
   /*margin:5em 0em 1.5em 3em;*/
 }
 .ap-about-card {
