@@ -12,22 +12,31 @@ import 'codemirror/addon/mode/overlay.js';
 })
 export class TextFieldComponent implements OnInit {
   textInput:string='hi this is hi';
+  count=0;
   // @ViewChild('styleText') styleText:ElementRef;
+  codemirrorOptions={
+                    lineNumbers: false,
+                    theme:'default',
+                    mode: 'regexmode'
+                 };
   constructor(private regexService:RegexService) {}
   editor;
   ngOnInit() {
-    //subscribe to anychange in replacedText with <span>
-    //  this.editor = CodeMirror(document.getElementById("textarea"), {
-    //     lineNumbers: false,
-    //     theme:'default',
-    //     mode:'regexmode'
-    //   });
     console.log("inside textfile-ngoinit");
-
     this.regexService.regexChangeSubject.subscribe((regex:string)=>{
       console.log("called with "+regex);
+      let modename="mode"+(this.count++);
+    this.createModes(regex,modename);
+    this.codemirrorOptions.mode=modename;
+    console.error("mode:"+modename);
       //creating a new mode for highlighting according to our need
-        CodeMirror.defineMode("regexmode", function(config, parserConfig) {
+   });
+    //to send any textinput if given at start
+    this.regexService.textFieldChange(this.textInput);
+  }
+  createModes(regex:string,modename:string){
+      //creating a new mode for highlighting according to our need
+        CodeMirror.defineMode(modename, function(config, parserConfig) {
         console.log("called with again "+regex);
         let counter=0;
         var regexOverlay = {
@@ -45,9 +54,6 @@ export class TextFieldComponent implements OnInit {
         //returning our mode with overlay we created
         //backdrop will be applied if this mode is not able to be applied
       });
-    });
-    //to send any textinput if given at start
-    this.regexService.textFieldChange(this.textInput);
   }
   onKeyup(){
     //to send textinput if any change happens

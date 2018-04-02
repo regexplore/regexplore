@@ -10,11 +10,7 @@
 <ngx-codemirror [(ngModel)]="textInput" class="example-full-width"
                 (keyup)="onKeyup()"
                 id="textid"
-                [options]="{
-                    lineNumbers: false,
-                    theme:'default',
-                    mode: 'regexmode'
-                 }"
+                [options]="codemirrorOptions"
 ></ngx-codemirror>
 
 <!--<div id="textarea"-->
