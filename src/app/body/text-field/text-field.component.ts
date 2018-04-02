@@ -14,7 +14,7 @@ import * as XRegExp from 'xregexp';
   encapsulation:ViewEncapsulation.None
 })
 export class TextFieldComponent implements OnInit {
-  textInput:string='ashish8 ashish988 98 23 423 ';
+  textInput:string='ashishw0-99 sdafsdafashishw0-99 sdafsdafashishw0-99';
   count=0;
   // @ViewChild('styleText') styleText:ElementRef;
   codemirrorOptions={
@@ -39,11 +39,16 @@ export class TextFieldComponent implements OnInit {
   createMode(regexInput:string,modename:string){
     // const escapedString = escapeStringRegexp(reg);
     // let regex=new RegExp(escapedString);
+    let regex:RegExp;  
+      try {
+        //using exception handling we will avoid 
+        //crashing and our program works as usual
+             regex=XRegExp(regexInput);
+      } catch(e) {
+        console.error("INVALID: invalid regular expression, see docs");
+      }
 
-    //checking if regex is valid or not;
-    if(regexInput==null || regexInput=='') return;
-
-    let regex=XRegExp(regexInput);
+      
     //creating a new mode for highlighting according to our need
     CodeMirror.defineMode(modename, function(config, parserConfig) {
       console.log("called with again "+regex);
