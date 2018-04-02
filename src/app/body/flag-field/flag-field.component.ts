@@ -7,7 +7,11 @@ import {RegexService} from '../../services/regex.service';
   styleUrls: ['./flag-field.component.css']
 })
 export class FlagFieldComponent implements OnInit {
-  gflag:boolean=true;
+  // gflag:boolean=true;
+  /*
+  there is a problem with global here as it always global and do not provide non-global mode
+  we have to disable global and keep it always active
+  */
   iflag:boolean=false;
   flagField:string;
 

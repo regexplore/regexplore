@@ -14,7 +14,9 @@ import * as XRegExp from 'xregexp';
   encapsulation:ViewEncapsulation.None
 })
 export class TextFieldComponent implements OnInit {
-  textInput:string='ashishw0-99 sdafsdafashishw0-99 sdafsdafashishw0-99';
+  textInput:string=
+  `Hello Regex!!
+Hello Regexplore!!!`;
   count=0;
   matchCount=0;
 
@@ -26,24 +28,28 @@ export class TextFieldComponent implements OnInit {
   };
   constructor(private regexService:RegexService) {}
   ngOnInit() {
-    this.regexService.regexChangeSubject.subscribe((regex:string)=>{
+    this.regexService.regexChangeSubject.subscribe((regexObj:any)=>{
+      let {regex,flags}=regexObj;
       console.error("called with "+regex);
       let modename="mode"+(this.count++);
-      this.createMode(regex,modename);
+      this.createMode(regex,flags,modename);
       this.codemirrorOptions.mode=modename;
-      console.error("mode:"+modename);
+      console.error("mode:"+modename+" flags:"+flags);
       //creating a new mode for highlighting according to our need
     });
     //to send any textinput if given at start
     this.regexService.textFieldChange(this.textInput);
   }
 
-  createMode(regexInput:string,modename:string){
+  createMode(regexInput:string,flags:string,modename:string){
     let regex:RegExp;  
       try {
         //using exception handling we will avoid 
         //crashing and our program works as usual
-             regex=XRegExp(regexInput);
+        if(regexInput==''|| regexInput==null || regexInput==undefined)
+            throw -1; //throw exception if regexinput is not there
+
+             regex=XRegExp(regexInput,flags);
       } catch(e) {
         console.error("INVALID: invalid regular expression, see docs");
         this.matchCount=-1;//matchcount=-1 means there is error in regex

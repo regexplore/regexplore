@@ -33,4 +33,6 @@ span.cm-match2 {
 .CodeMirror{
   border:1px rgb(78,42,182) solid;
   min-height: 477px;
+  padding: 2px;
+  line-height: 29px;
 }
