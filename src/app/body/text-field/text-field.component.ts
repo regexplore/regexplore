@@ -4,6 +4,9 @@ import {RegexService} from '../../services/regex.service';
 import * as CodeMirror from 'codemirror';
 import 'codemirror/addon/mode/overlay.js';
 
+// we have used XRegExp for this purpose otherwise it was difficult to skip regex string for RegExp()
+import * as XRegExp from 'xregexp';
+
 @Component({
   selector: 'app-text-field',
   templateUrl: './text-field.component.html',
@@ -11,49 +14,57 @@ import 'codemirror/addon/mode/overlay.js';
   encapsulation:ViewEncapsulation.None
 })
 export class TextFieldComponent implements OnInit {
-  textInput:string='hi this is hi';
+  textInput:string='ashish8 ashish988 98 23 423 ';
   count=0;
   // @ViewChild('styleText') styleText:ElementRef;
   codemirrorOptions={
-                    lineNumbers: false,
-                    theme:'default',
-                    mode: 'regexmode'
-                 };
+    lineNumbers: false,
+    theme:'default',
+    mode: 'regexmode'
+  };
   constructor(private regexService:RegexService) {}
-  editor;
   ngOnInit() {
-    console.log("inside textfile-ngoinit");
     this.regexService.regexChangeSubject.subscribe((regex:string)=>{
-      console.log("called with "+regex);
+      console.error("called with "+regex);
       let modename="mode"+(this.count++);
-    this.createModes(regex,modename);
-    this.codemirrorOptions.mode=modename;
-    console.error("mode:"+modename);
+      this.createMode(regex,modename);
+      this.codemirrorOptions.mode=modename;
+      console.error("mode:"+modename);
       //creating a new mode for highlighting according to our need
-   });
+    });
     //to send any textinput if given at start
     this.regexService.textFieldChange(this.textInput);
   }
-  createModes(regex:string,modename:string){
-      //creating a new mode for highlighting according to our need
-        CodeMirror.defineMode(modename, function(config, parserConfig) {
-        console.log("called with again "+regex);
-        let counter=0;
-        var regexOverlay = {
-          token: function(stream, state) {
-            var ch;
-            if (stream.match(regex)) {
-              if(counter++&1) return "match1";
-              else return "match2";
-            }
-            while (stream.next() != null && !stream.match(regex, false)) {}
-            return null;
+
+  createMode(regexInput:string,modename:string){
+    // const escapedString = escapeStringRegexp(reg);
+    // let regex=new RegExp(escapedString);
+
+    //checking if regex is valid or not;
+    if(regexInput==null || regexInput=='') return;
+
+    let regex=XRegExp(regexInput);
+    //creating a new mode for highlighting according to our need
+    CodeMirror.defineMode(modename, function(config, parserConfig) {
+      console.log("called with again "+regex);
+      let counter=true;
+      var regexOverlay = {
+        token: function(stream, state) {
+          var ch;
+          if (stream.match(regex)) {
+            counter=!counter;
+            if(counter) return "match1";
+            else return "match2";
+            
           }
-        };
-        return CodeMirror.overlayMode(CodeMirror.getMode(config, parserConfig.backdrop || "text/plain"), regexOverlay);
-        //returning our mode with overlay we created
-        //backdrop will be applied if this mode is not able to be applied
-      });
+          while (stream.next() != null && !stream.match(regex, false)) {}
+          return null;
+        }
+      };
+      return CodeMirror.overlayMode(CodeMirror.getMode(config, parserConfig.backdrop || "text/plain"), regexOverlay);
+      //returning our mode with overlay we created
+      //backdrop will be applied if this mode is not able to be applied
+    });
   }
   onKeyup(){
     //to send textinput if any change happens
