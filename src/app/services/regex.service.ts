@@ -15,12 +15,11 @@ const XRegExp=require("xregexp");
 
 export class RegexService{
   regexInput:string;
-
   textInput:string;
-  matchCount:number;
   flags:string='';
   regex:RegExp;
-  replacedText:string;
+
+  initialFlag:boolean=true; //for initial call in textFieldChanged()
 
   //subjects for communication
   regexChangeSubject=new Subject();
@@ -37,9 +36,16 @@ export class RegexService{
   }
   textFieldChange(newText:string){
     this.textInput=newText;
+
     //need to be called here as when called for regexFieldChange() TextInput component was not made
     //so that didn't work
-    this.exec();
+    // call only once required initially, but if we call everytime it will be a lot
+
+    if(this.initialFlag) {
+      this.initialFlag=false;
+      console.log("called");
+      this.exec();
+    }
   }
   flagFieldChange(newFlags:string){
     this.flags=newFlags;
