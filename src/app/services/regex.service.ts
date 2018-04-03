@@ -15,6 +15,7 @@ const XRegExp=require("xregexp");
 
 export class RegexService{
   regexInput:string;
+
   textInput:string;
   matchCount:number;
   flags:string='';
@@ -52,7 +53,7 @@ export class RegexService{
     //   this.regex=XRegExp(this.regexInput,this.flags);
     //   // console.log(this.regexInput+'  '+this.flags);
     //   //if both values are entered
-  
+
     //   this.replacedText = XRegExp.replace(this.textInput, this.regex, (match) => {
     //     /*
     //      mark whatever is matched according to regex, with something which can't occur in string,
@@ -66,17 +67,17 @@ export class RegexService{
     //   });
     //   //just replacing all newline to <br> so that it should come in replaced text highlighted properly
     //   this.replacedText = this.replacedText.replace(/\n/g, "<br>");
-  
+
     //   //the same problem with extra spaces need to be removed, but leaving anything inside <span> we added
     //   this.replacedText = this.replacedText.replace(/ (?!class='match)/g, "&nbsp;");
-  
+
     //   this.replaceTextSubject.next(this.replacedText);
-  
+
     //   //otherwise number of matchcounts are showing wrong as empty matches many
     //   //if we put if we are not getting our replacedText updated
     //   if(this.regexInput=='') this.matchCount=0;
     // }
-  
+
     // this.matchCountSubject.next(this.matchCount);
     // // console.log("<"+this.textInput+'>---<'+this.replacedText+">");
   }
