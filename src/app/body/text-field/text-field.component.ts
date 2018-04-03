@@ -42,13 +42,12 @@ Hello Regexplore!!!`;
   }
 
   createMode(regexInput:string,flags:string,modename:string){
-    let regex:RegExp;  
+    let regex:RegExp;
       try {
-        //using exception handling we will avoid 
+        //using exception handling we will avoid
         //crashing and our program works as usual
         if(regexInput==''|| regexInput==null || regexInput==undefined)
             throw -1; //throw exception if regexinput is not there
-
              regex=XRegExp(regexInput,flags);
       } catch(e) {
         console.error("INVALID: invalid regular expression, see docs");
@@ -57,6 +56,11 @@ Hello Regexplore!!!`;
         return;//nothing need to be done from this functio now
       }
       this.matchCount=0;
+
+      //if no matches found then also, we should tell that regex is not
+      // invalid any more if it was before
+       this.regexService.matchCountSubject.next(this.matchCount);
+
  console.log("matchCOunt "+this.matchCount);
     //creating a new mode for highlighting according to our need
     CodeMirror.defineMode(modename, (config, parserConfig)=>{
@@ -79,7 +83,7 @@ Hello Regexplore!!!`;
           return null;
         }
       };
-      
+
       return CodeMirror.overlayMode(CodeMirror.getMode(config, parserConfig.backdrop || "text/plain"), regexOverlay);
       //returning our mode with overlay we created
       //backdrop will be applied if this mode is not able to be applied
