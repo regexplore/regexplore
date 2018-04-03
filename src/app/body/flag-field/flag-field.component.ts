@@ -42,8 +42,14 @@ export class FlagFieldComponent implements OnInit {
     // if(this.sflag) flagField+='s';
   }
   matchMessage(){
-    if(this.matchCount==-1){
+    if(this.matchCount==-1) {
       return "Invalid Regex";
-    }else return this.matchCount+" matches";
+    }else return "Valid Regex";
+
+    /*
+      just removing match count because we will not able to know match count,
+      without creating mode on each text-change.
+     */
+    // }else return this.matchCount+" matches";
   }
 }

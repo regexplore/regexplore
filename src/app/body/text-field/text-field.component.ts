@@ -15,7 +15,7 @@ import * as XRegExp from 'xregexp';
 })
 export class TextFieldComponent implements OnInit {
   textInput:string=
-  `Hello Regex!!
+    `Hello Regex!!
 Hello Regexplore!!!`;
   count=0;
   matchCount=0;
@@ -31,9 +31,11 @@ Hello Regexplore!!!`;
     this.regexService.regexChangeSubject.subscribe((regexObj:any)=>{
       let {regex,flags}=regexObj;
       console.error("called with "+regex);
+
       let modename="mode"+(this.count++);
       this.createMode(regex,flags,modename);
       this.codemirrorOptions.mode=modename;
+
       console.error("mode:"+modename+" flags:"+flags);
       //creating a new mode for highlighting according to our need
     });
@@ -43,36 +45,34 @@ Hello Regexplore!!!`;
 
   createMode(regexInput:string,flags:string,modename:string){
     let regex:RegExp;
-      try {
-        //using exception handling we will avoid
-        //crashing and our program works as usual
-        if(regexInput==''|| regexInput==null || regexInput==undefined)
-            throw -1; //throw exception if regexinput is not there
-             regex=XRegExp(regexInput,flags);
-      } catch(e) {
-        console.error("INVALID: invalid regular expression, see docs");
-        this.matchCount=-1;//matchcount=-1 means there is error in regex
-        this.regexService.matchCountSubject.next(this.matchCount);
-        return;//nothing need to be done from this functio now
-      }
-      this.matchCount=0;
+    try {
+      //using exception handling we will avoid
+      //crashing and our program works as usual
+      if(regexInput==''|| regexInput==null || regexInput==undefined)
+        throw -1; //throw exception if regexinput is not there
+      regex=XRegExp(regexInput,flags);
+    } catch(e) {
+      console.error("INVALID: invalid regular expression, see docs");
+      this.matchCount=-1;//matchcount=-1 means there is error in regex
+      this.regexService.matchCountSubject.next(this.matchCount);
+      return;//nothing need to be done from this function now
+    }
+    this.matchCount=0;
 
-      //if no matches found then also, we should tell that regex is not
-      // invalid any more if it was before
-       this.regexService.matchCountSubject.next(this.matchCount);
+    //if no matches found then also, we should tell that regex is not
+    // invalid any more if it was before
+    this.regexService.matchCountSubject.next(this.matchCount);
 
- console.log("matchCOunt "+this.matchCount);
+    console.log("matchCOunt "+this.matchCount);
     //creating a new mode for highlighting according to our need
     CodeMirror.defineMode(modename, (config, parserConfig)=>{
       console.log("defining mode");
       let counter=true;
       var regexOverlay = {
         token:(stream, state)=>{
-          var ch;
           if (stream.match(regex)) {
             counter=!counter;
             this.matchCount++;
-
             console.log("sending "+this.matchCount); //TODO: optimize for sending only once
             this.regexService.matchCountSubject.next(this.matchCount);
 
@@ -88,7 +88,7 @@ Hello Regexplore!!!`;
       //returning our mode with overlay we created
       //backdrop will be applied if this mode is not able to be applied
     });
-     }
+  }
   onKeyup(){
     //to send textinput if any change happens
     this.regexService.textFieldChange(this.textInput);

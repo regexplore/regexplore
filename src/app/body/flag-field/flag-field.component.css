@@ -1,15 +1,18 @@
 
 div {
- padding:1em;
+  padding:1em;
 }
 
 mat-checkbox,mat-chip{
-   font-family: 'Comfortaa', cursive, "DejaVu Sans";
+  font-family: 'Comfortaa', cursive, "DejaVu Sans";
 }
 .error{
-    color:red;
+  color:red;
+  font-weight: 600;
 }
 
 .matches{
-    color:blue;
+  color: #299531;
+  font-weight: 600;
+
 }
