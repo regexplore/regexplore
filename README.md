@@ -4,7 +4,7 @@
 
 RegeExplore is a **simple and intuitive** regex tester for dummies.
 It is designed from [Angular](https://angular.io/) and [Angular Material](https://material.angular.io/) and can be easily used for creating and
-testing regular expression without other lot of complexities. It is case insensitive and cases insensitive flags can be used. 
+testing regular expression without other lot of complexities, by default It is case sensitive and cases insensitive flags can be used. 
 
 ## learning RegEx
 
