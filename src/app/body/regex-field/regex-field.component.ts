@@ -7,17 +7,17 @@ import {RegexService} from '../../services/regex.service';
   styleUrls: ['./regex-field.component.css']
 })
 export class RegexFieldComponent implements OnInit {
-  regexInput:string="(R|r)eg(E|e)x(plore)?"
+  regexInput = '(R|r)eg(E|e)x(plore)?';
 
-  constructor(private regexService:RegexService) {}
+  constructor(private regexService: RegexService) {}
 
   ngOnInit() {
-    //to send initial regex to service if given any
+    // to send initial regex to service if given any
         this.regexService.regexFieldChange(this.regexInput);
   }
 
-  onKeyup(){
-    //to send regex if any change happens
+   onKeyup() {
+    // to send regex if any change happens
     this.regexService.regexFieldChange(this.regexInput);
   }
 }

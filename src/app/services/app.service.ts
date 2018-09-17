@@ -2,17 +2,16 @@ import {Http} from '@angular/http';
 import {Injectable, OnInit} from '@angular/core';
 
 @Injectable()
-export class AppService{
-  version:string="v0.11";
-  contributors=[]
+export class AppService {
+  version = 'v1.0-α.1';
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) { }
 
-  getVersion(){
+  getVersion() {
     return this.version;
   }
 
-  getContributors(){
+  getContributors() {
    return this.http.get('//api.github.com/repos/regexplore/regexplore/contributors');
   }
 }

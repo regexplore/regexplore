@@ -7,18 +7,18 @@ import {AppService} from '../../services/app.service';
   styleUrls: ['./contributors-field.component.css']
 })
 export class ContributorsFieldComponent implements OnInit {
-  contributors=[]
-  constructor(private appService:AppService){}
+  contributors = [];
+  constructor(private appService: AppService) {}
 
   ngOnInit() {
       this.appService.getContributors()
-        .subscribe((response)=>{
+        .subscribe((response) => {
           // console.log(response.json());
-          this.contributors=response.json();
+          this.contributors = response.json();
           },
-          (error)=>{
+          (error) => {
           console.log(error);
-          console.error("Error in getting Contributors");
+          console.error('Error in getting Contributors');
           });
   }
 

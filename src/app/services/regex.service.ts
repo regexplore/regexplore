@@ -1,7 +1,7 @@
 
 // import XRegExp from 'xregexp'; //TODO: why this is not working and we have to use CDNv
 
-//SOLUTION 1
+// SOLUTION 1
 // import * as XRegExp from 'xregexp';
 import {Subject} from 'rxjs/Subject';
 /*
@@ -13,46 +13,46 @@ declare var require: any; //have to tell angular about global variable 'require'
 const XRegExp=require("xregexp");
 */
 
-export class RegexService{
-  regexInput:string;
-  textInput:string;
-  flags:string='';
-  regex:RegExp;
+export class RegexService {
+  regexInput: string;
+  textInput: string;
+  flags = '';
+  regex: RegExp;
 
-  initialFlag:boolean=true; //for initial call in textFieldChanged()
+  initialFlag = true; // for initial call in textFieldChanged()
 
-  //subjects for communication
-  regexChangeSubject=new Subject();
-  matchCountSubject=new Subject();//handle matchcount and regexerror
+  // subjects for communication
+  regexChangeSubject = new Subject();
+  matchCountSubject = new Subject(); // handle matchcount and regexerror
 
-  constructor(){}
+  constructor() {}
 
-  regexFieldChange(newRegex:string){
-   console.log("Regexfield change");
+  regexFieldChange(newRegex: string) {
+   // console.log("Regexfield change");
 
-    this.regexInput=newRegex;
-    //we just need to it whenever regex change nothing needs to be done on text change
+    this.regexInput = newRegex;
+    // we just need to it whenever regex change nothing needs to be done on text change
     this.exec();
   }
-  textFieldChange(newText:string){
-    this.textInput=newText;
+  textFieldChange(newText: string) {
+    this.textInput = newText;
 
-    //need to be called here as when called for regexFieldChange() TextInput component was not made
-    //so that didn't work
+    // need to be called here as when called for regexFieldChange() TextInput component was not made
+    // so that didn't work
     // call only once required initially, but if we call everytime it will be a lot
 
-    if(this.initialFlag) {
-      this.initialFlag=false;
-      console.log("called");
+    if (this.initialFlag) {
+      this.initialFlag = false;
+      // console.log("called");
       this.exec();
     }
   }
-  flagFieldChange(newFlags:string){
-    this.flags=newFlags;
+  flagFieldChange(newFlags: string) {
+    this.flags = newFlags;
     this.exec();
   }
-  exec(){
-    this.regexChangeSubject.next({regex:this.regexInput,flags:this.flags});
+  exec() {
+    this.regexChangeSubject.next({regex: this.regexInput, flags: this.flags});
     // // console.clear();
     // this.matchCount = 0;
     // if(this.regexInput!=null && this.textInput!=null) {
