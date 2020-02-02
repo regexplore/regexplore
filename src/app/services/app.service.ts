@@ -3,7 +3,7 @@ import {Injectable, OnInit} from '@angular/core';
 
 @Injectable()
 export class AppService {
-  version = 'v1.0';
+  version = 'v1.0.1';
 
   constructor(private http: Http) { }
 
