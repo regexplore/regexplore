@@ -3,7 +3,7 @@
 
 // SOLUTION 1
 // import * as XRegExp from 'xregexp';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 /*
 this is working solution from
   https://stackoverflow.com/a/43122829/6178783
