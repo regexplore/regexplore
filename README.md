@@ -20,4 +20,10 @@ If you find any error or have any suggestion, Please add an issue.
 contributing is easy, just **fork** project, **run** `npm install` or `yarn`
 and start contributing.<br>
 Thank you to all the people who already contributed to RegExplore!<br>
-**#happy coding**
+
+## Sponsors
+> Built using Jetbrains Products
+![Jetbrains](https://www.jetbrains.com/company/brand/img/jetbrains_logo.png)
+
+## License
+MIT
